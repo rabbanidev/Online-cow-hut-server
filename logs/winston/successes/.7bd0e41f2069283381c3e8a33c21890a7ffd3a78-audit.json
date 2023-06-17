@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "E:\\project\\l2a3-cow-hut-backend-assignment-rabbanidev\\logs\\winston\\successes\\.7bd0e41f2069283381c3e8a33c21890a7ffd3a78-audit.json",
+    "files": [
+        {
+            "date": 1687017595212,
+            "name": "E:\\project\\l2a3-cow-hut-backend-assignment-rabbanidev\\logs\\winston\\successes\\um-2023-17-06-21-success.log",
+            "hash": "65f789c2f17e6ca1f85ac15f0aaab761c778e257015d303e8cf9f01410107f0d"
+        },
+        {
+            "date": 1687017601135,
+            "name": "E:\\project\\l2a3-cow-hut-backend-assignment-rabbanidev\\logs\\winston\\successes\\um-2023-17-06-22-success.log",
+            "hash": "b6b06961e86004208d015a58b4fb947718ec27521af029d63be06ba8a29fe963"
+        }
+    ],
+    "hashType": "sha256"
+}
