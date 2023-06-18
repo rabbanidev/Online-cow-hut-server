@@ -96,9 +96,16 @@ const updateCow = async (
     throw new ApiError(httpStatus.NOT_FOUND, 'Cow not found!');
   }
 
+  if (payload?.seller) {
+    const isSeller = await checkSeller(payload.seller.toString());
+    if (!isSeller) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'This user is not a seller!');
+    }
+  }
+
   Object.assign(exitCow, payload);
 
-  const result = await exitCow.save();
+  const result = (await exitCow.save()).populate('seller');
   return result;
 };
 
