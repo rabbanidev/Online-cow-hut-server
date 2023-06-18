@@ -96,8 +96,14 @@ const updateCow = (id, payload) => __awaiter(void 0, void 0, void 0, function* (
     if (!exitCow) {
         throw new ApiError_1.default(http_status_1.default.NOT_FOUND, 'Cow not found!');
     }
+    if (payload === null || payload === void 0 ? void 0 : payload.seller) {
+        const isSeller = yield (0, cow_utils_1.checkSeller)(payload.seller.toString());
+        if (!isSeller) {
+            throw new ApiError_1.default(http_status_1.default.BAD_REQUEST, 'This user is not a seller!');
+        }
+    }
     Object.assign(exitCow, payload);
-    const result = yield exitCow.save();
+    const result = (yield exitCow.save()).populate('seller');
     return result;
 });
 const deleteCow = (id) => __awaiter(void 0, void 0, void 0, function* () {

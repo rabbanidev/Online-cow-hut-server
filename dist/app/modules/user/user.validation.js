@@ -72,12 +72,12 @@ const updatedUserZodSchema = zod_1.z.object({
         budget: zod_1.z.number().optional(),
         income: zod_1.z.number().optional(),
     })
-        .refine(({ role, budget, income }) => {
-        if (role || budget || income)
+        .refine(({ role }) => {
+        if (role)
             return false;
         return true;
     }, {
-        message: "You can't update role budget and income!",
+        message: "You can't update role!",
     }),
 });
 exports.UserValidation = {

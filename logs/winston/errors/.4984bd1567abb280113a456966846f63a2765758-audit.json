@@ -9,6 +9,11 @@
             "date": 1687017595237,
             "name": "E:\\project\\l2a3-cow-hut-backend-assignment-rabbanidev\\logs\\winston\\errors\\um-2023-17-06-21-error.log",
             "hash": "7faa456e720fb7fc9dabdaefde0412b732444b98d7eb961657fd26e3d40020c2"
+        },
+        {
+            "date": 1687098055221,
+            "name": "E:\\project\\l2a3-cow-hut-backend-assignment-rabbanidev\\logs\\winston\\errors\\um-2023-18-06-20-error.log",
+            "hash": "d546cb331cd9f23c14e806ea8b970a6b102b5734f678d796ac56320ba95e9408"
         }
     ],
     "hashType": "sha256"
