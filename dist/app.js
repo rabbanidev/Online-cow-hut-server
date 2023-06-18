@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const notFoundHandler_1 = __importDefault(require("./app/middlewares/notFoundHandler"));
 const globalErrorHandler_1 = __importDefault(require("./app/middlewares/globalErrorHandler"));
 const routes_1 = __importDefault(require("./app/routes"));
+const sendResponse_1 = __importDefault(require("./shared/sendResponse"));
 const app = (0, express_1.default)();
 // cors use
 app.use((0, cors_1.default)());
@@ -18,7 +19,11 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.use('/api/v1', routes_1.default);
 // Test
 app.get('/', (req, res) => {
-    res.status(200).json({ message: 'Hello' });
+    (0, sendResponse_1.default)(res, {
+        statusCode: 200,
+        success: true,
+        message: 'Cow online hut home page!',
+    });
 });
 // Global Error Hnadler
 app.use(globalErrorHandler_1.default);

@@ -3,6 +3,7 @@ import express, { Application } from 'express';
 import notFoundHandler from './app/middlewares/notFoundHandler';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
 import Routes from './app/routes';
+import sendResponse from './shared/sendResponse';
 const app: Application = express();
 
 // cors use
@@ -16,7 +17,11 @@ app.use('/api/v1', Routes);
 
 // Test
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Hello' });
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Cow online hut home page!',
+  });
 });
 
 // Global Error Hnadler
