@@ -2,7 +2,6 @@ import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
 import { IUser } from './user.inteface';
 import User from './user.model';
-import { userRole } from './user.constant';
 
 const getAllUsers = async (): Promise<IUser[]> => {
   const result = await User.find();
@@ -21,19 +20,6 @@ const updateUser = async (
   const exitUser = await User.findById(id);
   if (!exitUser) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found!');
-  }
-
-  // Check user is seller. can't update income and budget
-  if (exitUser.role === userRole[0] && (payload.budget || payload.income)) {
-    throw new ApiError(
-      httpStatus.BAD_REQUEST,
-      "You can't not update income and budget"
-    );
-  }
-
-  // Check user is buyer. can't update income
-  if (exitUser.role === userRole[1] && payload.income) {
-    throw new ApiError(httpStatus.BAD_REQUEST, "You can't not update income");
   }
 
   const { name, ...userData } = payload;
